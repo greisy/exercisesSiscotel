@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blog</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Rock+Salt' rel='stylesheet' type='text/css'>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+	<header>
+		<nav class="be-red white large-padding">
+			<ul class="row center-xs middle-xs no-list" style="list-style-type:none;">
+				<li class="col-md">
+					<h1 class="no-margin" id="logo">Rails</h1>
+				</li>
+				<li >
+					<%= link_to "Inicio", root_path, class: "title" %>
+				</li>
+				<li class="col-md title">
+					Diseño
+				</li>
+				<li class="col-md title">
+					Programación
+				</li>
+				<li class="col-md title">
+					Tecnología
+				</li>
+			</ul>
+		</nav>
+	</header>
+<%= yield %>
+
+</body>
+</html>

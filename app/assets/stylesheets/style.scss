@@ -1,0 +1,51 @@
+*{
+	padding: 0px;
+	margin: 0px;
+	font-family: 'Roboto', sans-serif;
+}
+.be-red {
+	background-color: rgb(196,241,58);
+}
+.black {
+	color: #222222;
+}
+.large-padding {
+	padding: 15px 10px;
+}
+.title{
+	font-family: 'Oswald', sans-serif;
+}
+a, a:visited{
+	color: inherit;
+	text-decoration: none;
+}
+a:hover{
+	color:white;
+}
+.no-margin{
+	margin: 0px;
+}
+#logo{
+	font-size: 1.3em;
+	font-family: 'Rock Salt', cursive;
+}
+.field{
+	margin-top: 1em;
+}
+.form-control{
+	border:none;
+	border-bottom: 1px solid;
+	outline:none;
+	width:100%;
+	display: block;
+	padding:10px 0px;
+	font-size:1.2em;
+}
+.btn{
+	background-color:rgb(125,197,245);
+	border:none;
+	outline:none;
+	text-transform: uppercase;
+	cursor: pointer;
+	padding:10px;
+}
