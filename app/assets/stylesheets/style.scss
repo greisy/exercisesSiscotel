@@ -3,11 +3,17 @@
 	margin: 0px;
 	font-family: 'Roboto', sans-serif;
 }
-.be-red {
+.be-green {
 	background-color: rgb(196,241,58);
+}
+.be-alert{
+	background-color: red;
 }
 .black {
 	color: #222222;
+}
+.white{
+	color: white;
 }
 .large-padding {
 	padding: 15px 10px;

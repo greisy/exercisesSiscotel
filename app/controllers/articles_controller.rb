@@ -15,6 +15,17 @@ class ArticlesController < ApplicationController
 	end
 	#post /articles
 	def create
+		@article = Article.new(title: params[:article][:title], body: params[:article][:body])
+		
+		if @article.save
+			redirect_to @article #se dirige a la vista show con la variable de instancia @article creada aqui
+		else
+			render :new #se mantiene la variable de instancia creada en esta acción para cuando renderice new
+		end
 
+		
+	end
+
+	def update
 	end
 end
