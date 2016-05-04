@@ -15,8 +15,8 @@ class ArticlesController < ApplicationController
 	end
 	#post /articles
 	def create
-		@article = Article.new(title: params[:article][:title], body: params[:article][:body])
-		
+		#@article = Article.new(title: params[:article][:title], body: params[:article][:body])
+		@article = Article.new(article_params)
 		if @article.save
 			redirect_to @article #se dirige a la vista show con la variable de instancia @article creada aqui
 		else
@@ -28,4 +28,31 @@ class ArticlesController < ApplicationController
 
 	def update
 	end
+
+	def destroy
+		@article = Article.find(params[:id])
+
+		@article.destroy
+
+		redirect_to articles_path
+	end
+
+	private
+
+	def article_params
+		#{
+		#	article:{
+		#		title: "bla",
+		#		body: "bla2"
+		#	}
+		#}
+		params.require(:article).permit(:title,:body)
+	end
 end
+
+#where devuelve un arreglo de objetos
+#Article.where("title LIKE ?", "%articulo%")
+#Article.where.not("id = params[:id]")
+
+#find devuelve el primer objeto que encuentre cumpliendo esa condición
+#Article.find_by(title: 'Segundo articulo')
