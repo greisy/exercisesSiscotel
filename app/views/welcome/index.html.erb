@@ -1,2 +1,7 @@
-<h1>Hola mundo!</h1>
+<% if current_user %>
+	<h1>Hola <%= current_user.email %></h1>
+<% else %>
+	<h2>First page</h2>
+<% end%>
+
 

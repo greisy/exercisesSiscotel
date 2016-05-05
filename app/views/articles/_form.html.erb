@@ -1,0 +1,22 @@
+ <!--name no es una variable de instancia primero porque no empiza con @ y por tanto no esta definida dentro del controlador-->
+ <% name ||= 'Crear' %>
+ <h1><%= name%> Artículo</h1>
+ <%= form_for(@article) do |f| %> <!--crea un formulario del recurso que se le esta pasando por parametro-->
+  <!-- en el formulario no indicamos hacia que accion se va a dirigir. Si el objeto no es persistente es decir se esta creando va a dirigirse a la acción create si el objeto es persistente se va a dirigir a update -->
+    <% @article.errors.full_messages.each do |message|%>
+    	<div class="be-alert white">
+    		<%= message %>
+    	</div>
+    <% end %>	
+
+
+    <div class="field">
+	    <%= f.text_field :title, placeholder: "Título", class: "form-control" %>
+    </div>
+    <div class="field">
+	    <%= f.text_area :body, placeholder: "Escribe aquí el artículo", class: "form-control" %>	
+    </div>
+    <div class="field">
+	    <%= f.submit "Guardar", class: "btn white" %>
+    </div>
+<% end %>

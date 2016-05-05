@@ -4,7 +4,7 @@
 	font-family: 'Roboto', sans-serif;
 }
 .be-green {
-	background-color: rgb(196,241,58);
+	background-color: rgb(185,255,0);
 }
 .be-alert{
 	background-color: red;
@@ -14,6 +14,9 @@
 }
 .white{
 	color: white;
+}
+.red{
+	color:red !important;
 }
 .large-padding {
 	padding: 15px 10px;
@@ -38,6 +41,9 @@ a:hover{
 .field{
 	margin-top: 1em;
 }
+.text-left{
+	text-align: left;
+}
 .form-control{
 	border:none;
 	border-bottom: 1px solid;
@@ -48,10 +54,25 @@ a:hover{
 	font-size:1.2em;
 }
 .btn{
-	background-color:rgb(125,197,245);
+	background-color:rgb(115,29,255);
 	border:none;
 	outline:none;
 	text-transform: uppercase;
 	cursor: pointer;
 	padding:10px;
+}
+.btn2{
+	background-color:rgb(255,255,255);
+	border:none;
+	outline:none;
+	text-transform: uppercase;
+	cursor: pointer;
+	padding:10px;
+}
+.session{
+	font-size: 12px;
+	font-weight: bold;
+}
+.purple{
+	color:#731DFF;
 }

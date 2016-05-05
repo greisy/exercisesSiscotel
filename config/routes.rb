@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
+ 
+  devise_for :users
   #get 'welcome/index'
 
-  resources :articles
+  #RECURSOS ANIDADOS SON SUBRECURSOS DE OTROS RECURSOS
+  resources :articles do
+    resources :comments, only: [:create, :destroy, :update]
+  end
+
   #resources :articles, except: [:delete] vas a crear rutas excepto para borrar
   #resources :articles, onlye: [:create, :update] vas a crear rutas solo para     
 
