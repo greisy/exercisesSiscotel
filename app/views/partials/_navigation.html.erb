@@ -1,25 +1,20 @@
 <header>
 	<nav class="be-green black large-padding">
-		<ul class="row center-xs middle-xs no-list" style="list-style-type:none;">
+		<ul class="row center-xs middle-xs no-lits" >
 			<li class="col-md">
-				<h1 class="no-margin" id="logo">Rails</h1>
+				<h1 class="no-margin">
+					<%= link_to "Rails", root_path, class: "logo" %>
+				</h1>
 			</li>
 			<li class="col-md">
-				<%= link_to "Inicio", root_path, class: "title" %>
+				<%= link_to "Articles", articles_path, class: "title" %>
 			</li>
-			<li class="col-md title">
-				Diseño
-			</li>
-			<li class="col-md title">
-				Programación
-			</li>
-			<li class="col-md title">
-				Tecnología
-			</li>
-			
-			<li class="col-md title">
-				Tecnología
-			</li>
+			<% @categories.each do |category| %>
+				<li class="col-md">
+					<%= link_to category.name, category, {style: "color: #{category.color};", class: "title"} %>
+				</li>
+			<% end %>
+
 			<% if user_signed_in? %>
 				<li class="col-md">	
 					<%= button_to "Cerrar Sesion", destroy_user_session_path, method: :delete, class: "session btn white" %>

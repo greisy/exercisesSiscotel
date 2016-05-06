@@ -4,24 +4,31 @@
 		Escrito por: <%= @article.user.email %>
 	</p>
 <% end %>
+<div class="field">
+	<%= image_tag @article.cover.url() %>
+</div>
 <% unless @article.visits_count.nil? %>
 	<p>Visitas: <%= @article.visits_count %> </p>
 <% end %>
 <div>
 	<%= @article.body %>
 </div>
+<% @article.categories.each do |category| %>
+	<%= button_to category.name, category ,{ style: "background-color: #{category.color};color:white;", class: "btn"}%>
+
+<% end %>
 <div class="field">
 	<h3>Comentarios</h3>
 	<%= render "comments/form" %>
-	<ul id="comments-box">
-		<% @article.comments.each do |comment| %>
-			<l1>
-				<%= comment.body%> - <%= comment.user.email %><br>
-			</l1>
-		<% end %>
-	</ul>
-	
 </div>
+
+<ul id="comments-box">
+	<% @article.comments.each do |comment| %>	
+		<l1>
+			<%= comment.body %> - <%= comment.user.email %><br>
+		</l1>
+	<% end %>		
+</ul>
 
 <div>
 	<%= link_to "Editar", edit_article_path(@article)%>
