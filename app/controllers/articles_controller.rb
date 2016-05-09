@@ -6,7 +6,8 @@ class ArticlesController < ApplicationController
 	before_action :authenticate_admin!, only:[:destroy]
 	#get /articles
 	def index
-		@articles = Article.all
+		#@articles = Article.all
+		@articles = Article.publicados
 	end
 	#get /articles/:id
 	#existe un hash global que se llama params que almacena los datos pasados al servidor, en este caso el :id
@@ -53,6 +54,11 @@ class ArticlesController < ApplicationController
 		@article.destroy
 
 		redirect_to articles_path
+	end
+
+	def publish
+		@article.publish!
+		redirect_to @article
 	end
 
 	private

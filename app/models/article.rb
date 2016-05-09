@@ -15,6 +15,14 @@ class Article < ActiveRecord::Base
 	has_attached_file :cover, styles: { medium: "1200x700>", thumb: "600x300>" } #este modelo Article tiene un archivo adjunto
 	validates_attachment_content_type :cover, content_type: /\Aimage\/.*\Z/
 
+	#SCOPE (es un metodo de clases, es un metodo que se ejecuta sobre la clase y no sobre el objeto)
+	scope :publicados, ->{ where(state: "published")}
+	scope :ultimos, ->{ order("created_at DESC").limit(10)}
+
+	def self.publicados
+		Article.where(state: 'published')
+	end
+	##***********FIN DE SCOPES***************
 	#custom setter es un metodo que me permite asignar valor al atributo de un objeto
 	def categories=(value)
 		@categories = value #aqui categories es una variable de instancia de esta clase no confundir con el controlador OJO	
@@ -33,11 +41,11 @@ class Article < ActiveRecord::Base
 
 		#transiciones entre estados
 		event  :publish do
-			transitions from: :in_draft, to: :published unless may_unpublish?
+			transitions from: :in_draft, to: :published
 		end
 
 		event :unpublish do
-			transitions from: :published, to: :in_draft unless may_publish?
+			transitions from: :published, to: :in_draft
 		end
 
 	end

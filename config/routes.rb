@@ -9,6 +9,9 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :destroy, :update]
   end
 
+  get '/dashboard', to: "welcome#dashboard"
+  put '/articles/:id/publish', to: "articles#publish"
+
   #resources :articles, except: [:delete] vas a crear rutas excepto para borrar
   #resources :articles, onlye: [:create, :update] vas a crear rutas solo para     
 

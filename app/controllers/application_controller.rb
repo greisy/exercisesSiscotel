@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
     redirect_to root_path unless user_signed_in? && current_user.is_editor?
   end
   def authenticate_admin!
-    redirect_to root_path unless reuser_signed_in? && current_user.is_admin?
+    redirect_to root_path unless user_signed_in? && current_user.is_admin?
   end
 
   private
