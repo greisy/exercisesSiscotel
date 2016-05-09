@@ -3,11 +3,12 @@ class ArticlesController < ApplicationController
 	before_action :authenticate_user!, only: [:create, :new, :update, :edit, :destroy]
 	before_action :set_article, except: [:new, :index, :create]
 	before_action :authenticate_editor!, only: [:new, :create, :update, :edit]
-	before_action :authenticate_admin!, only:[:destroy]
+	before_action :authenticate_admin!, only:[:destroy, :publish]
 	#get /articles
 	def index
 		#@articles = Article.all
-		@articles = Article.publicados
+		#@articles = Article.publicados
+		@articles = Article.paginate(page: params[:page], per_page:1).publicados.ultimos
 	end
 	#get /articles/:id
 	#existe un hash global que se llama params que almacena los datos pasados al servidor, en este caso el :id

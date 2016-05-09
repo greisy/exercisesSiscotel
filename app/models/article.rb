@@ -17,7 +17,7 @@ class Article < ActiveRecord::Base
 
 	#SCOPE (es un metodo de clases, es un metodo que se ejecuta sobre la clase y no sobre el objeto)
 	scope :publicados, ->{ where(state: "published")}
-	scope :ultimos, ->{ order("created_at DESC").limit(10)}
+	scope :ultimos, ->{ order("created_at DESC")}
 
 	def self.publicados
 		Article.where(state: 'published')
