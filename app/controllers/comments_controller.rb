@@ -27,7 +27,7 @@ class CommentsController < ApplicationController
   # POST /comments.json
   def create
     @comment = current_user.comments.new(comment_params)
-    @comment.article = @article
+    @comment.article = @article #coloco el id del article dentro del objeto comment
     respond_to do |format|
       if @comment.save
         format.html { redirect_to @comment.article, notice: 'Comment was successfully created.' }
