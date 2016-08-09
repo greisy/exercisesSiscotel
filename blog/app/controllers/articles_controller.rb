@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
 	#before_action :validate_user, except: [:show, :index]
 	before_action :authenticate_user!, only: [:create, :new, :update, :edit, :destroy]
-	before_action :set_article, except: [:new, :index, :create, :update, :]
+	before_action :set_article, except: [:new, :index, :create, :update]
 	before_action :authenticate_editor!, only: [:new, :create, :update, :edit]
 	before_action :authenticate_admin!, only:[:destroy, :publish]
 	#get /articles

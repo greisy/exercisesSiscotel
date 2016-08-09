@@ -14,17 +14,13 @@
 ActiveRecord::Schema.define(version: 20160506210008) do
 
   create_table "articles", force: :cascade do |t|
-    t.string   "title",              limit: 255
-    t.text     "body",               limit: 65535
-    t.integer  "visits_count",       limit: 4
-    t.datetime "created_at",                                            null: false
-    t.datetime "updated_at",                                            null: false
-    t.integer  "user_id",            limit: 4
-    t.string   "cover_file_name",    limit: 255
-    t.string   "cover_content_type", limit: 255
-    t.integer  "cover_file_size",    limit: 4
-    t.datetime "cover_updated_at"
-    t.string   "state",              limit: 255,   default: "in_draft"
+    t.string   "title",        limit: 255
+    t.text     "body",         limit: 65535
+    t.integer  "visits_count", limit: 4
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
+    t.integer  "user_id",      limit: 4
+    t.string   "state",        limit: 255,   default: "in_draft"
   end
 
   add_index "articles", ["user_id"], name: "index_articles_on_user_id", using: :btree
