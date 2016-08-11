@@ -5,17 +5,18 @@ class Ability
     user ||= User.new
 
     ## defining alias
-    alias_action :index, :show, to: => :read
-    alias_action :new, to: => :create
-    alias_action :edit, to: => :update
+    alias_action :index, :show, :to => :read
+    alias_action :new, :to => :create
+    alias_action :edit, :to => :update
+    alias_action :destroy, :to => :modify
 
     ## Define abilities
-    if user.role? :admin
-        can :manage, Article
+    if user.role?(:admin)
+        can [:read, :create, :update, :modify], Article
     elsif user.role?(:cliente)
         can :read, Article
     elsif user.role?(:asesor)
-        can [:update, :read], Article    
+        can :read, :update, Article    
     end
 
     # Define abilities for the passed in user here. For example:

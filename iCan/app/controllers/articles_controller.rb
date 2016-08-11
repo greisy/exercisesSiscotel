@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles
   # GET /articles.json
-  def index
+  def index 
     @articles = Article.all
   end
 
