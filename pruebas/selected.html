@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>selected	</title>
+	<meta charset="utf-8">
+	<script
+			  src="https://code.jquery.com/jquery-3.1.0.min.js"
+			  integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="
+			  crossorigin="anonymous"></script>
+</head>
+<body>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#document_type_id').change(function(){
+				$('#document_type_id').clearQueue();
+				$('#document_type_id option').removeAttr('selected');
+				$('#document_type_id :selected').attr('selected', true);
+			});
+			$('#company_type_id').change(function(){
+				$('#company_type_id').clearQueue();
+				var company_type = $(this).val();
+				if (company_type){
+					if(company_type == 'PUBLICA'){
+						$('#document_type_id option').removeAttr('selected');
+						$('select[name="document_type_id"]').find('option[value="Gobierno"]').attr("selected",true);
+					}else if(company_type == 'PRIVADA'){
+						$('#document_type_id option').removeAttr('selected');
+						$('select[name="document_type_id"]').find('option[value="Juridico"]').attr("selected",true);	
+					}
+				}
+			});
+		});
+	</script>
+	<form>
+		<select id="company_type_id" name="company_type_id">
+			<option value="">Selecciona...</option>
+			<option value="PUBLICA">Publica</option>
+			<option value="PRIVADA">Privada</option>
+		</select>
+		<select id="document_type_id" name="document_type_id">
+		<option value="">Selecciona...</option>
+		<option value="Venezolano">V-Venezolano</option>
+		<option value="Extranjero">V-Extranjero</option>
+		<option value="Juridico">V-Juridico</option>
+		<option value="Gobierno">V-Gobierno</option>
+		</select>
+	</form>
+</body>
+</html>
